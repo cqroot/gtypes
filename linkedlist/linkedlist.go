@@ -88,14 +88,18 @@ func (l LinkedList[T]) IndexOf(value T) int {
 	return -1
 }
 
-func (l LinkedList[T]) ForEach(f func(i int, data T)) {
+func (l LinkedList[T]) ForEach(f func(i int, data T) error) error {
 	if l.size == 0 {
-		return
+		return nil
 	}
 
 	n := l.head
 	for i := 0; i < l.size; i++ {
-		f(i, n.data)
+		err := f(i, n.data)
+		if err != nil {
+			return err
+		}
 		n = n.next
 	}
+	return nil
 }

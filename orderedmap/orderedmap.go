@@ -44,8 +44,12 @@ func (m *OrderedMap[K, V]) Remove(key K) {
 	m.ll.Remove(m.ll.IndexOf(key))
 }
 
-func (m *OrderedMap[K, V]) ForEach(f func(key K, val V)) {
-	m.ll.ForEach(func(i int, k K) {
-		f(k, m.kv[k])
+func (m *OrderedMap[K, V]) ForEach(f func(key K, val V) error) error {
+	return m.ll.ForEach(func(i int, k K) error {
+		err := f(k, m.kv[k])
+		if err != nil {
+			return err
+		}
+		return nil
 	})
 }
