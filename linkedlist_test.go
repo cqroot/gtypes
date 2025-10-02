@@ -1,14 +1,14 @@
-package linkedlist_test
+package gtypes_test
 
 import (
 	"testing"
 
-	"github.com/cqroot/gtypes/linkedlist"
+	"github.com/cqroot/gtypes"
 	"github.com/stretchr/testify/require"
 )
 
 func TestLinkedList(t *testing.T) {
-	l := linkedlist.New[string]()
+	l := gtypes.NewLinkedList[string]()
 	require.Equal(t, 0, l.Size())
 
 	l.Add("a")

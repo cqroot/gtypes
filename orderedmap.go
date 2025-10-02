@@ -1,15 +1,13 @@
-package orderedmap
-
-import "github.com/cqroot/gtypes/linkedlist"
+package gtypes
 
 type OrderedMap[K comparable, V any] struct {
-	ll *linkedlist.LinkedList[K]
+	ll *LinkedList[K]
 	kv map[K]V
 }
 
-func New[K comparable, V any]() *OrderedMap[K, V] {
+func NewOrderedMap[K comparable, V any]() *OrderedMap[K, V] {
 	return &OrderedMap[K, V]{
-		ll: linkedlist.New[K](),
+		ll: NewLinkedList[K](),
 		kv: make(map[K]V),
 	}
 }

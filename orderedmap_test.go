@@ -1,14 +1,14 @@
-package orderedmap_test
+package gtypes_test
 
 import (
 	"testing"
 
-	"github.com/cqroot/gtypes/orderedmap"
+	"github.com/cqroot/gtypes"
 	"github.com/stretchr/testify/require"
 )
 
 func TestOMap(t *testing.T) {
-	m := orderedmap.New[string, string]()
+	m := gtypes.NewOrderedMap[string, string]()
 	require.Equal(t, 0, m.Len())
 
 	testcases := []struct {

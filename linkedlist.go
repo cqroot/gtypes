@@ -1,4 +1,4 @@
-package linkedlist
+package gtypes
 
 type node[T comparable] struct {
 	data T
@@ -12,7 +12,7 @@ type LinkedList[T comparable] struct {
 	size int
 }
 
-func New[T comparable]() *LinkedList[T] {
+func NewLinkedList[T comparable]() *LinkedList[T] {
 	return &LinkedList[T]{
 		head: nil,
 		tail: nil,
